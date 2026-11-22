@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PJOK Mr. Wahid</title>
+<meta name="description" content="Web utama mapel PJOK SD dan SMP Jaya Manggala: profil guru dan kumpulan media pembelajaran interaktif per kelas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --langit:#FFF6E8; --kertas:#FFFFFF; --tinta:#2B1A3F; --teks:#2B1A3F; --redup:#5A4E6E; --garis:#2B1A3F; --lembut:#FFF1DA;
+  --oranye:#FF7A1F; --biru:#1565C0; --kuning:#FFC233; --hijau:#1E9B4C; --merah:#E8323F; --lapangan:#F2C38B;
+  --display:'Luckiest Guy','Arial Black',Impact,sans-serif; --body:'Nunito','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--langit:#141A2E;--kertas:#1F2742;--teks:#F4F1FF;--redup:#B9B2D3;--garis:#0B0716;--lembut:#273152;--tinta:#0B0716;--lapangan:#3A2F4F;color-scheme:dark}}
+:root[data-theme="dark"]{--langit:#141A2E;--kertas:#1F2742;--teks:#F4F1FF;--redup:#B9B2D3;--garis:#0B0716;--lembut:#273152;--tinta:#0B0716;--lapangan:#3A2F4F;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--langit);color:var(--teks);font-family:var(--body);font-weight:600;line-height:1.5;
+  background-image:radial-gradient(circle at 12% 8%,rgba(255,122,31,.10) 0 180px,transparent 181px);}
+html.pid body{zoom:1.3}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--kuning);outline-offset:3px}
+.wadah{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.5px;margin:0}
+button{font:inherit;cursor:pointer}
+
+/* bilah atas */
+.bilah{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--langit) 88%,transparent);backdrop-filter:blur(6px);border-bottom:4px solid var(--garis)}
+.bilah .wadah{display:flex;align-items:center;gap:12px;min-height:64px}
+.merek{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:24px;color:var(--teks)}
+.merek svg{width:38px;height:38px;flex:none}
+.bilah nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.tombol{display:inline-flex;align-items:center;gap:6px;border:3px solid var(--garis);background:var(--kertas);color:var(--teks);border-radius:14px;padding:6px 14px;font-weight:900;font-size:15px;box-shadow:3px 4px 0 var(--garis);text-decoration:none;transition:transform .12s}
+.tombol:hover{transform:translateY(-2px)} .tombol:active{transform:translateY(2px);box-shadow:1px 1px 0 var(--garis)}
+.tombol[aria-pressed="true"]{background:var(--kuning);color:#2B1A3F}
+
+/* profil */
+.profil{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;padding:44px 0 30px}
+.avatar{width:250px;height:250px;border:5px solid var(--garis);border-radius:36px;background:var(--kuning);box-shadow:8px 10px 0 var(--garis);overflow:hidden;transform:rotate(-3deg);position:relative}
+.avatar svg{width:100%;height:100%;display:block}
+.avatar .peluit{transform-origin:150px 205px;animation:ayun 2.6s ease-in-out infinite}
+@keyframes ayun{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.eyebrow{font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--oranye);font-size:15px}
+.profil h1{font-size:clamp(42px,7vw,76px);line-height:.95;color:var(--biru);-webkit-text-stroke:2px var(--tinta);paint-order:stroke fill;text-shadow:0 5px 0 var(--tinta);margin:6px 0 8px}
+.profil h1 span{color:var(--oranye)}
+.motto{font-family:var(--display);font-size:clamp(22px,3vw,30px);color:var(--hijau);margin:0 0 10px}
+.tentang{max-width:62ch;color:var(--redup);font-size:17px;margin:0 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:14px;padding:4px 12px;border-radius:999px;border:3px solid var(--garis);background:var(--kertas)}
+.chip.k{background:var(--kuning);color:#2B1A3F}
+.angka{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px;max-width:560px}
+.angka div{background:var(--kertas);border:4px solid var(--garis);border-radius:18px;padding:10px 12px;box-shadow:4px 5px 0 var(--garis);text-align:center}
+.angka b{display:block;font-family:var(--display);font-size:34px;line-height:1;color:var(--oranye)}
+.angka span{font-size:13px;font-weight:900;color:var(--redup)}
+
+/* jenjang & cari */
+.judul-bagian{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:26px 0 16px}
+.judul-bagian h2{font-size:clamp(30px,4.5vw,44px);color:var(--teks)}
+.judul-bagian p{margin:4px 0 0;color:var(--redup)}
+.saring{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pilih-jenjang{display:flex;border:4px solid var(--garis);border-radius:16px;overflow:hidden;box-shadow:4px 5px 0 var(--garis);background:var(--kertas)}
+.pilih-jenjang button{border:0;background:transparent;color:var(--teks);padding:8px 18px;font-weight:900;font-size:16px}
+.pilih-jenjang button+button{border-left:3px solid var(--garis)}
+.pilih-jenjang button[aria-pressed="true"]{background:var(--kuning);color:#2B1A3F}
+.cari{border:4px solid var(--garis);border-radius:16px;padding:8px 14px;font:inherit;font-weight:800;background:var(--kertas);color:var(--teks);min-width:220px;box-shadow:4px 5px 0 var(--garis)}
+
+/* lompat kelas */
+.lompat{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 22px}
+.lompat a{width:58px;height:58px;display:grid;place-items:center;text-decoration:none;font-family:var(--display);font-size:28px;border:4px solid var(--garis);border-radius:16px;background:var(--kertas);box-shadow:3px 4px 0 var(--garis);position:relative}
+.lompat a.ada{background:var(--oranye);color:#fff;-webkit-text-stroke:1px var(--tinta);paint-order:stroke fill}
+.lompat a small{position:absolute;bottom:-9px;font-family:var(--body);font-size:10px;font-weight:900;background:var(--kertas);color:var(--teks);border:2px solid var(--garis);border-radius:8px;padding:0 5px;-webkit-text-stroke:0}
+
+/* kelas */
+.jenjang-judul{display:flex;align-items:center;gap:12px;margin:30px 0 6px}
+.jenjang-judul h3{font-size:30px}
+.jenjang-judul .pita{font-family:var(--display);font-size:22px;color:#fff;background:var(--biru);border:3px solid var(--garis);border-radius:10px;padding:3px 10px 0;transform:rotate(-2deg)}
+.kelas{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:18px 0;border-top:3px dashed color-mix(in srgb,var(--garis) 30%,transparent);scroll-margin-top:84px}
+.nomor{width:96px;height:96px;border:4px solid var(--garis);border-radius:24px;background:var(--lapangan);display:grid;place-items:center;box-shadow:4px 5px 0 var(--garis);position:relative}
+.nomor b{font-family:var(--display);font-size:52px;line-height:1;color:var(--kertas);-webkit-text-stroke:2px var(--tinta);paint-order:stroke fill}
+.nomor span{position:absolute;top:-12px;font-weight:900;font-size:12px;background:var(--kuning);color:#2B1A3F;border:3px solid var(--garis);border-radius:10px;padding:0 8px}
+.kartu-daftar{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.kartu{background:var(--kertas);border:4px solid var(--garis);border-radius:22px;box-shadow:6px 7px 0 var(--garis);overflow:hidden;display:flex;flex-direction:column;transition:transform .15s}
+.kartu:hover{transform:translateY(-3px) rotate(-.4deg)}
+.kartu .sampul{height:112px;position:relative;border-bottom:4px solid var(--garis);overflow:hidden}
+.kartu .sampul svg.lap{position:absolute;inset:0;width:100%;height:100%}
+.kartu .sampul .ik{position:absolute;right:14px;bottom:-14px;width:96px;height:96px;filter:drop-shadow(3px 4px 0 rgba(0,0,0,.35))}
+.kartu .sampul .kls{position:absolute;left:14px;top:12px;font-weight:900;font-size:13px;background:var(--kertas);color:var(--teks);border:3px solid var(--garis);border-radius:10px;padding:1px 9px}
+.kartu .isi{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kartu h4{margin:0;font-family:var(--display);font-weight:400;font-size:26px;line-height:1.05}
+.kartu .sub{font-weight:900;color:var(--redup);font-size:14px;margin-top:-4px}
+.kartu p{margin:0;font-size:15px;color:var(--redup)}
+.tag{display:flex;flex-wrap:wrap;gap:6px}
+.tag span{font-size:12px;font-weight:900;border:2px solid var(--garis);border-radius:999px;padding:1px 9px;background:var(--lembut)}
+.aksi{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.aksi .utama{background:var(--oranye);color:#fff;-webkit-text-stroke:0}
+.segera{border:4px dashed color-mix(in srgb,var(--garis) 45%,transparent);border-radius:22px;padding:14px 18px;color:var(--redup);display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;background:color-mix(in srgb,var(--kertas) 55%,transparent)}
+.kls-kosong{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.kls-kosong span{width:44px;height:44px;display:grid;place-items:center;font-family:var(--display);font-size:24px;color:var(--teks);border:3px dashed var(--garis);border-radius:12px;scroll-margin-top:90px}
+.kartu{scroll-margin-top:90px}
+.segera b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--teks)}
+.kosong-cari{padding:30px;text-align:center;color:var(--redup);font-weight:900}
+
+/* cara belajar */
+.langkah{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:10px 0 40px}
+.langkah div{background:var(--kertas);border:4px solid var(--garis);border-radius:22px;padding:16px;box-shadow:5px 6px 0 var(--garis)}
+.langkah b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--kuning);color:#2B1A3F;border:3px solid var(--garis);font-family:var(--display);font-size:22px;margin-bottom:8px}
+.langkah h4{margin:0 0 4px;font-size:18px;font-weight:900}
+.langkah p{margin:0;color:var(--redup);font-size:15px}
+footer{border-top:4px solid var(--garis);padding:20px 0 34px;color:var(--redup);font-weight:800;font-size:14px}
+footer .wadah{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* QR */
+dialog{border:5px solid var(--garis);border-radius:26px;padding:22px;background:var(--kertas);color:var(--teks);box-shadow:10px 12px 0 rgba(0,0,0,.4);max-width:min(92vw,520px);text-align:center}
+dialog::backdrop{background:rgba(20,15,40,.6)}
+dialog h3{font-size:30px;margin-bottom:4px}
+#qrGambar{background:#fff;border:4px solid var(--garis);border-radius:18px;padding:10px;margin:14px auto;width:min(78vw,360px);aspect-ratio:1}
+#qrGambar svg{width:100%;height:100%;display:block}
+#qrAlamat{font-weight:900;word-break:break-all;font-size:15px}
+.tutup{margin-top:12px}
+
+@media (max-width:760px){
+  .profil{grid-template-columns:1fr;gap:22px;padding-top:28px}
+  .avatar{width:180px;height:180px}
+  .kelas{grid-template-columns:1fr}
+  .nomor{width:76px;height:76px}.nomor b{font-size:40px}
+  .langkah{grid-template-columns:1fr}
+  .bilah .merek span{display:none}
+  .cari{min-width:0;flex:1}
+  .angka b{font-size:28px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="bilah">
+  <div class="wadah">
+    <a class="merek" href="#atas" aria-label="Ke atas">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="#FF7A1F" stroke="#2B1A3F" stroke-width="3"/><path d="M3 20h34M20 3v34M8 8c6 6 6 18 0 24M32 8c-6 6-6 18 0 24" fill="none" stroke="#2B1A3F" stroke-width="2.4"/></svg>
+      <span>PJOK Mr. Wahid</span>
+    </a>
+    <nav>
+      <a class="tombol" href="#materi">Materi</a>
+      <button class="tombol" id="tblQrUtama" data-nama="Web Utama PJOK" title="Kode QR web ini untuk dipindai murid">QR</button>
+      <button class="tombol" id="tblPid" aria-pressed="false" title="Perbesar tampilan untuk PID / TV">Mode PID</button>
+      <button class="tombol" id="tblTema" aria-label="Ganti terang / gelap">Tema</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wadah" id="atas">
+  <section class="profil" aria-labelledby="namaGuru">
+    <div class="avatar" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <rect width="300" height="300" fill="#FFC233"/>
+        <circle cx="150" cy="150" r="128" fill="#FFD666"/>
+        <path d="M0 230 Q150 200 300 230 V300 H0Z" fill="#F2C38B"/>
+        <path d="M30 262 H270" stroke="#fff" stroke-width="5" opacity=".7"/>
+        <!-- badan: jaket olahraga -->
+        <path d="M58 300 C62 238 96 214 150 212 C204 214 238 238 242 300Z" fill="#1565C0" stroke="#2B1A3F" stroke-width="6"/>
+        <path d="M150 214 V300" stroke="#2B1A3F" stroke-width="5"/>
+        <path d="M96 232 L84 300 M204 232 L216 300" stroke="#FF7A1F" stroke-width="10"/>
+        <path d="M124 214 L150 246 L176 214" fill="#fff" stroke="#2B1A3F" stroke-width="5" stroke-linejoin="round"/>
+        <!-- leher -->
+        <rect x="134" y="186" width="32" height="32" rx="8" fill="#C98B5E" stroke="#2B1A3F" stroke-width="5"/>
+        <!-- kepala -->
+        <ellipse cx="150" cy="138" rx="56" ry="62" fill="#D89A6A" stroke="#2B1A3F" stroke-width="6"/>
+        <ellipse cx="94" cy="144" rx="10" ry="15" fill="#D89A6A" stroke="#2B1A3F" stroke-width="5"/>
+        <ellipse cx="206" cy="144" rx="10" ry="15" fill="#D89A6A" stroke="#2B1A3F" stroke-width="5"/>
+        <!-- rambut -->
+        <path d="M94 128 C88 80 120 62 152 64 C190 64 214 86 206 130 C198 108 186 98 168 96 C146 104 118 100 104 94 C98 104 96 116 94 128Z" fill="#1F1628" stroke="#2B1A3F" stroke-width="5" stroke-linejoin="round"/>
+        <!-- wajah -->
+        <path d="M118 128 q12 -8 24 0 M160 128 q12 -8 24 0" fill="none" stroke="#2B1A3F" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="130" cy="143" r="6" fill="#2B1A3F"/><circle cx="172" cy="143" r="6" fill="#2B1A3F"/>
+        <circle cx="132" cy="141" r="2" fill="#fff"/><circle cx="174" cy="141" r="2" fill="#fff"/>
+        <path d="M150 150 q-6 14 4 16" fill="none" stroke="#2B1A3F" stroke-width="4" stroke-linecap="round"/>
+        <path d="M128 172 q22 20 46 0" fill="#fff" stroke="#2B1A3F" stroke-width="5" stroke-linejoin="round"/>
+        <circle cx="114" cy="164" r="8" fill="#FF7A1F" opacity=".35"/><circle cx="188" cy="164" r="8" fill="#FF7A1F" opacity=".35"/>
+        <!-- tali & peluit -->
+        <path d="M128 214 Q150 250 172 214" fill="none" stroke="#E8323F" stroke-width="5"/>
+        <g class="peluit"><path d="M150 205 V232" stroke="#E8323F" stroke-width="5"/>
+          <rect x="136" y="230" width="34" height="20" rx="8" fill="#C9D3E0" stroke="#2B1A3F" stroke-width="5"/>
+          <rect x="166" y="234" width="16" height="10" rx="3" fill="#C9D3E0" stroke="#2B1A3F" stroke-width="4"/></g>
+        <!-- bola basket -->
+        <g transform="translate(232 62)"><circle r="30" fill="#FF7A1F" stroke="#2B1A3F" stroke-width="5"/><path d="M-30 0H30M0 -30V30M-20 -22c10 10 10 34 0 44M20 -22c-10 10 -10 34 0 44" fill="none" stroke="#2B1A3F" stroke-width="3.5"/></g>
+      </svg>
+    </div>
+    <div>
+      <div class="eyebrow" id="profPeran">Guru PJOK</div>
+      <h1 id="namaGuru">Mr. Syaifudin <span>Wahid</span></h1>
+      <p class="motto" id="profMotto"></p>
+      <p class="tentang" id="profTentang"></p>
+      <div class="chips" id="profChips"></div>
+      <div class="angka" id="profAngka"></div>
+    </div>
+  </section>
+
+  <section id="materi" aria-labelledby="judulMateri">
+    <div class="judul-bagian">
+      <div><h2 id="judulMateri">Materi per Kelas</h2><p>Pilih kelasmu, lalu buka media pembelajarannya.</p></div>
+      <div class="saring">
+        <div class="pilih-jenjang" role="group" aria-label="Pilih jenjang">
+          <button aria-pressed="true" data-j="semua">Semua</button><button aria-pressed="false" data-j="SD">SD</button><button aria-pressed="false" data-j="SMP">SMP</button>
+        </div>
+        <input class="cari" id="cari" type="search" placeholder="Cari materi, mis. basket" aria-label="Cari materi">
+      </div>
+    </div>
+    <nav class="lompat" id="lompat" aria-label="Lompat ke kelas"></nav>
+    <div id="daftarKelas"></div>
+  </section>
+
+  <section aria-labelledby="judulCara">
+    <div class="judul-bagian"><h2 id="judulCara">Cara Belajar</h2></div>
+    <div class="langkah">
+      <div><b>1</b><h4>Pilih kelasmu</h4><p>Tekan nomor kelas di atas, atau pindai kode QR yang ditayangkan guru di layar kelas.</p></div>
+      <div><b>2</b><h4>Pelajari dan bergerak</h4><p>Tonton video, baca materi, ikuti animasi gerakan, lalu praktikkan bersama teman.</p></div>
+      <div><b>3</b><h4>Uji dan refleksi</h4><p>Kerjakan kuis dan permainan, cari kesalahan teknik, lalu isi tiket keluar untuk mendapat lencana.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wadah"><span id="kaki"></span><span>Media Pembelajaran Interaktif PJOK</span></div></footer>
+
+<dialog id="dlgQr" aria-labelledby="qrJudul">
+  <h3 id="qrJudul">Pindai untuk membuka</h3>
+  <div id="qrNama" style="font-weight:900;color:var(--redup)"></div>
+  <div id="qrGambar"></div>
+  <div id="qrAlamat"></div>
+  <button class="tombol tutup" id="qrTutup">Tutup</button>
+</dialog>
+
+<script src="materi.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const P=window.PROFIL||{}, M=(window.MATERI||[]).filter(m=>m&&m.kelas);
+const simpan=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}, ambil=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+
+/* profil */
+const nama=String(P.nama||'').trim(), pecah=nama.split(' '), akhir=pecah.pop()||'';
+$('#namaGuru').innerHTML=esc((P.sapaan?P.sapaan+' ':'')+pecah.join(' '))+' <span>'+esc(akhir)+'</span>';
+$('#profPeran').textContent=[P.peran,P.gelar?nama+', '+P.gelar:''].filter(Boolean).join(' · ');
+$('#profMotto').textContent=P.motto||'';
+$('#profTentang').textContent=P.tentang||'';
+const chips=(P.sekolah||[]).map(s=>'<span class="chip k">'+esc(s)+'</span>');
+if(P.kota)chips.push('<span class="chip">'+esc(P.kota)+'</span>');
+(P.tautan||[]).filter(t=>t&&t.link).forEach(t=>chips.push('<a class="chip" href="'+esc(t.link)+'" target="_blank" rel="noopener">'+esc(t.label)+'</a>'));
+$('#profChips').innerHTML=chips.join('');
+const kelasAda=new Set(M.map(m=>m.kelas));
+$('#profAngka').innerHTML=[[M.length,'media interaktif'],[kelasAda.size,'kelas terlayani'],[new Set(M.map(m=>m.jenjang)).size,'jenjang']].map(a=>'<div><b>'+a[0]+'</b><span>'+a[1]+'</span></div>').join('');
+$('#kaki').textContent='© '+new Date().getFullYear()+' '+(P.sapaan?P.sapaan+' ':'')+nama+(P.gelar?', '+P.gelar:'')+' · '+(P.sekolah||[]).join(' & ')+(P.kota?', '+P.kota:'');
+
+/* ikon */
+const IKON={
+ basket:'<svg class="ik" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#FF7A1F" stroke="#2B1A3F" stroke-width="6"/><path d="M6 50h88M50 6v88M20 18c16 16 16 48 0 64M80 18c-16 16-16 48 0 64" fill="none" stroke="#2B1A3F" stroke-width="5"/></svg>',
+ jantung:'<svg class="ik" viewBox="0 0 100 100"><path d="M50 88C18 64 6 48 8 30 10 14 26 6 38 10c6 2 10 6 12 10 2-4 6-8 12-10 12-4 28 4 30 20 2 18-10 34-42 58Z" fill="#E8323F" stroke="#2B1A3F" stroke-width="6" stroke-linejoin="round"/><path d="M18 46h16l6-12 8 24 6-14h28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ piala:'<svg class="ik" viewBox="0 0 100 100"><path d="M28 10h44v22c0 16-10 26-22 26S28 48 28 32Z" fill="#FFC233" stroke="#2B1A3F" stroke-width="6" stroke-linejoin="round"/><path d="M28 18H12c0 16 8 22 18 22M72 18h16c0 16-8 22-18 22" fill="none" stroke="#2B1A3F" stroke-width="6"/><path d="M44 58h12v14H44z" fill="#FFC233" stroke="#2B1A3F" stroke-width="5"/><rect x="28" y="72" width="44" height="16" rx="4" fill="#C62828" stroke="#2B1A3F" stroke-width="6"/></svg>',
+ bola:'<svg class="ik" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#fff" stroke="#2B1A3F" stroke-width="6"/><path d="M50 28l14 10-5 17H41l-5-17Z" fill="#2B1A3F"/></svg>'
+};
+const lapangan=w=>'<svg class="lap" viewBox="0 0 400 112" preserveAspectRatio="xMidYMid slice"><rect width="400" height="112" fill="'+w+'"/><g fill="none" stroke="rgba(255,255,255,.45)" stroke-width="4"><circle cx="200" cy="56" r="34"/><path d="M200 0v112M0 20h70v72H0M400 20h-70v72h70"/></g></svg>';
+
+/* daftar */
+let jenjang=ambil('pjok-jenjang')||'semua', kata='';
+const JENJANG=[['SD',[1,2,3,4,5,6]],['SMP',[7,8,9]]];
+function kartu(m){
+  const w=m.warna||'#FF7A1F', urlPid=m.link?m.link+(m.link.includes('?')?'&':'?')+'pid=1':'';
+  return '<article class="kartu"><div class="sampul">'+lapangan(w)+'<span class="kls">'+esc(m.jenjang+' · Kelas '+m.kelas)+'</span>'+(IKON[m.ikon]||IKON.bola)+'</div>'+
+   '<div class="isi"><h4>'+esc(m.judul)+'</h4>'+(m.sub?'<div class="sub">'+esc(m.sub)+'</div>':'')+'<p>'+esc(m.ringkas)+'</p>'+
+   '<div class="tag">'+(m.topik||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
+   '<div class="aksi">'+(m.link?'<a class="tombol utama" href="'+esc(m.link)+'" target="_blank" rel="noopener">Buka materi</a><a class="tombol" href="'+esc(urlPid)+'" target="_blank" rel="noopener" title="Buka dengan tampilan besar untuk PID / TV">Mode PID</a><button class="tombol" data-qr="'+esc(m.link)+'" data-nama="'+esc(m.judul+' · Kelas '+m.kelas)+'">Kode QR</button>':'<span class="chip">Tautan segera hadir</span>')+'</div></div></article>';
+}
+function cocok(m){if(!kata)return true;return [m.judul,m.sub,m.ringkas,(m.topik||[]).join(' '),'kelas '+m.kelas,m.jenjang].join(' ').toLowerCase().includes(kata);}
+function gambar(){
+  document.querySelectorAll('.pilih-jenjang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.j===jenjang)));
+  let html='',lompat='',total=0;
+  JENJANG.forEach(([j,daftar])=>{
+    if(jenjang!=='semua'&&jenjang!==j)return;
+    let kartuHtml='',kosong=[];
+    daftar.forEach(k=>{
+      const isi=M.filter(m=>m.kelas===k&&cocok(m));
+      if(kata&&!isi.length)return;
+      total+=isi.length;
+      lompat+='<a href="#kelas-'+k+'" class="'+(M.some(m=>m.kelas===k)?'ada':'')+'" aria-label="Kelas '+k+'">'+k+'<small>'+j+'</small></a>';
+      if(isi.length)kartuHtml+=isi.map((m,i)=>kartu(m).replace('<article class="kartu"','<article class="kartu"'+(i?'':' id="kelas-'+k+'"'))).join('');
+      else kosong.push(k);
+    });
+    const strip=kosong.length?'<div class="segera"><svg width="46" height="46" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="7" stroke-dasharray="10 8"/><path d="M50 26v26l16 10" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round"/></svg><div><b>Segera hadir</b><br>Media sedang disiapkan untuk kelas:</div><div class="kls-kosong">'+kosong.map(k=>'<span id="kelas-'+k+'">'+k+'</span>').join('')+'</div></div>':'';
+    if(kartuHtml||strip)html+='<div class="jenjang-judul"><span class="pita" style="background:'+(j==='SD'?'var(--merah)':'var(--biru)')+'">'+j+'</span><h3>'+(j==='SD'?'Sekolah Dasar':'Sekolah Menengah Pertama')+'</h3></div>'+(kartuHtml?'<div class="kartu-daftar">'+kartuHtml+'</div>':'')+strip;
+  });
+  $('#daftarKelas').innerHTML=html||'<div class="kosong-cari">Tidak ada materi yang cocok dengan "'+esc(kata)+'".</div>';
+  $('#lompat').innerHTML=lompat;
+}
+document.querySelectorAll('.pilih-jenjang button').forEach(b=>b.onclick=()=>{jenjang=b.dataset.j;simpan('pjok-jenjang',jenjang);gambar();});
+$('#cari').addEventListener('input',e=>{kata=e.target.value.trim().toLowerCase();gambar();});
+gambar();
+
+/* QR */
+$('#tblQrUtama').dataset.qr=location.href.split(/[?#]/)[0];
+const dlg=$('#dlgQr');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-qr]');if(!b)return;
+  const url=b.dataset.qr;$('#qrNama').textContent=b.dataset.nama;$('#qrAlamat').textContent=url.replace(/^https?:\/\//,'');
+  if(window.qrcode){const q=qrcode(0,'M');q.addData(url);q.make();$('#qrGambar').innerHTML=q.createSvgTag({cellSize:8,margin:2,scalable:true});$('#qrGambar').hidden=false;}
+  else $('#qrGambar').hidden=true;
+  if(dlg.showModal)dlg.showModal();});
+$('#qrTutup').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
+
+/* mode PID & tema */
+const pid=v=>{document.documentElement.classList.toggle('pid',v);$('#tblPid').setAttribute('aria-pressed',String(v));simpan('pjok-pid',v?'1':'0');};
+pid(/[?&]pid=1/.test(location.search)||ambil('pjok-pid')==='1');
+$('#tblPid').onclick=()=>pid(!document.documentElement.classList.contains('pid'));
+const temaAwal=ambil('pjok-tema');if(temaAwal)document.documentElement.dataset.theme=temaAwal;
+$('#tblTema').onclick=()=>{const gelap=document.documentElement.dataset.theme?document.documentElement.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const t=gelap?'light':'dark';document.documentElement.dataset.theme=t;simpan('pjok-tema',t);};
+})();
+</script>
+</body>
+</html>
