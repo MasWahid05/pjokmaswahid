@@ -25,6 +25,15 @@ window.PROFIL = {
 window.MATERI = [
   /* ---------- SD ---------- */
   {
+    kelas: 1, semester: 1, jenjang: "SD",
+    judul: "Ayo Berpindah!",
+    sub: "Jalan, Lari, Lompat, Loncat",
+    ringkas: "Menirukan gerak binatang: kucing berjalan, kuda berlari, kijang melompat, katak meloncat. Ada aba-aba ajaib, permainan sentuh, dan kuis.",
+    topik: ["Gerak Lokomotor", "Gerak Binatang"],
+    ikon: "lari", warna: "#FF7A1F",
+    link: "https://maswahid05.github.io/Mpilokomotorkelas1/"
+  },
+  {
     kelas: 4, semester: 2, jenjang: "SD",
     judul: "Petualangan Tubuh Bugar",
     sub: "Ayo, Bugarkan Tubuhmu!",
