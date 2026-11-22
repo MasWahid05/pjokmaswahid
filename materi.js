@@ -34,6 +34,15 @@ window.MATERI = [
     link: "https://maswahid05.github.io/Mpilokomotorkelas1/"
   },
   {
+    kelas: 1, semester: 1, jenjang: "SD",
+    judul: "Asyik Main Bola!",
+    sub: "Bab 3 · Bergerak Menggunakan Benda",
+    ringkas: "Melempar, menangkap, memukul balon, menendang, dan menggiring bola, lalu main Bola Keranjang dan Bola Roket.",
+    topik: ["Gerak Manipulatif", "Bab 3"],
+    ikon: "bola", warna: "#1E88E5",
+    link: "https://maswahid05.github.io/Mpimanipulatifkelas1/"
+  },
+  {
     kelas: 4, semester: 2, jenjang: "SD",
     judul: "Petualangan Tubuh Bugar",
     sub: "Ayo, Bugarkan Tubuhmu!",
