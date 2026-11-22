@@ -99,6 +99,34 @@ button{font:inherit;cursor:pointer}
 .kls-kosong{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
 .kls-kosong span{width:44px;height:44px;display:grid;place-items:center;font-family:var(--display);font-size:24px;color:var(--teks);border:3px dashed var(--garis);border-radius:12px;scroll-margin-top:90px}
 .kartu{scroll-margin-top:90px}
+#materi{scroll-margin-top:80px}
+[hidden]{display:none!important}
+/* folder kelas */
+.rak{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px 18px;margin-top:8px}
+.folder{position:relative;display:block;text-decoration:none;color:var(--teks);padding-top:18px;transition:transform .15s}
+.folder:hover{transform:translateY(-4px) rotate(-1deg)}
+.folder .lidah{position:absolute;top:0;left:0;width:52%;height:30px;border:4px solid var(--garis);border-bottom:0;border-radius:14px 14px 0 0;background:var(--wf)}
+.folder .badan{position:relative;border:4px solid var(--garis);border-radius:0 18px 18px 18px;background:var(--wf);box-shadow:6px 7px 0 var(--garis);padding:12px 14px 14px;min-height:150px;display:flex;flex-direction:column;overflow:hidden}
+.folder .badan::before{content:"";position:absolute;left:10px;right:10px;top:-2px;height:26px;background:var(--kertas);border:3px solid var(--garis);border-radius:8px;transform:rotate(-3deg);opacity:.95}
+.folder .lbl{position:relative;font-weight:900;font-size:13px;letter-spacing:1px;color:#fff;margin-top:22px}
+.folder .no{position:relative;font-family:var(--display);font-size:64px;line-height:.9;color:#fff;-webkit-text-stroke:2px var(--tinta);paint-order:stroke fill;text-shadow:0 4px 0 var(--tinta)}
+.folder .jml{position:relative;margin-top:auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.folder .jml span{font-weight:900;font-size:13px;background:var(--kertas);color:var(--teks);border:3px solid var(--garis);border-radius:999px;padding:1px 9px}
+.folder .titik{width:14px;height:14px;border-radius:50%;border:2px solid var(--garis)}
+.folder.kosong{--wf:color-mix(in srgb,var(--redup) 35%,var(--kertas))}
+.folder.kosong .lbl{color:var(--teks);opacity:.7}.folder.kosong .no{opacity:.8}
+.kepala-folder{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:4px 0 18px}
+.kepala-folder .no{width:84px;height:84px;display:grid;place-items:center;font-family:var(--display);font-size:52px;color:#fff;-webkit-text-stroke:2px var(--tinta);paint-order:stroke fill;border:4px solid var(--garis);border-radius:22px;background:var(--wf);box-shadow:4px 5px 0 var(--garis)}
+.kepala-folder h3{font-size:clamp(28px,4vw,40px)}
+.kepala-folder p{margin:0;color:var(--redup);font-weight:800}
+.kepala-folder .kanan{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.semester-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.semester{background:color-mix(in srgb,var(--kertas) 60%,transparent);border:4px solid var(--garis);border-radius:24px;padding:16px}
+.semester h4{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-family:var(--display);font-weight:400;font-size:26px}
+.semester h4 span{font-family:var(--body);font-weight:900;font-size:13px;background:var(--kuning);color:#2B1A3F;border:3px solid var(--garis);border-radius:999px;padding:1px 10px}
+.semester .kartu-daftar{grid-template-columns:1fr}
+.semester .segera{margin-top:0}
+@media (max-width:760px){.semester-grid{grid-template-columns:1fr}.rak{grid-template-columns:repeat(2,minmax(0,1fr))}.folder .no{font-size:52px}.kepala-folder .kanan{margin-left:0}}
 .segera b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--teks)}
 .kosong-cari{padding:30px;text-align:center;color:var(--redup);font-weight:900}
 
@@ -126,7 +154,9 @@ dialog h3{font-size:30px;margin-bottom:4px}
   .kelas{grid-template-columns:1fr}
   .nomor{width:76px;height:76px}.nomor b{font-size:40px}
   .langkah{grid-template-columns:1fr}
-  .bilah .merek span{display:none}
+  .bilah .merek span,.bilah nav a[href="#materi"]{display:none}
+  .bilah nav{gap:6px;flex-wrap:nowrap}.bilah .tombol{padding:5px 10px;font-size:14px}
+  #materi{scroll-margin-top:70px}
   .cari{min-width:0;flex:1}
   .angka b{font-size:28px}
 }
@@ -198,7 +228,7 @@ dialog h3{font-size:30px;margin-bottom:4px}
 
   <section id="materi" aria-labelledby="judulMateri">
     <div class="judul-bagian">
-      <div><h2 id="judulMateri">Materi per Kelas</h2><p>Pilih kelasmu, lalu buka media pembelajarannya.</p></div>
+      <div><h2 id="judulMateri">Folder Kelas</h2><p>Buka folder kelasmu. Di dalamnya ada materi Semester 1 dan Semester 2.</p></div>
       <div class="saring">
         <div class="pilih-jenjang" role="group" aria-label="Pilih jenjang">
           <button aria-pressed="true" data-j="semua">Semua</button><button aria-pressed="false" data-j="SD">SD</button><button aria-pressed="false" data-j="SMP">SMP</button>
@@ -206,14 +236,14 @@ dialog h3{font-size:30px;margin-bottom:4px}
         <input class="cari" id="cari" type="search" placeholder="Cari materi, mis. basket" aria-label="Cari materi">
       </div>
     </div>
-    <nav class="lompat" id="lompat" aria-label="Lompat ke kelas"></nav>
     <div id="daftarKelas"></div>
+    <div id="isiFolder" hidden></div>
   </section>
 
   <section aria-labelledby="judulCara">
     <div class="judul-bagian"><h2 id="judulCara">Cara Belajar</h2></div>
     <div class="langkah">
-      <div><b>1</b><h4>Pilih kelasmu</h4><p>Tekan nomor kelas di atas, atau pindai kode QR yang ditayangkan guru di layar kelas.</p></div>
+      <div><b>1</b><h4>Buka folder kelasmu</h4><p>Tekan folder kelasmu, pilih materi semester yang sedang dipelajari, atau pindai kode QR yang ditayangkan guru.</p></div>
       <div><b>2</b><h4>Pelajari dan bergerak</h4><p>Tonton video, baca materi, ikuti animasi gerakan, lalu praktikkan bersama teman.</p></div>
       <div><b>3</b><h4>Uji dan refleksi</h4><p>Kerjakan kuis dan permainan, cari kesalahan teknik, lalu isi tiket keluar untuk mendapat lencana.</p></div>
     </div>
@@ -262,40 +292,65 @@ const IKON={
 };
 const lapangan=w=>'<svg class="lap" viewBox="0 0 400 112" preserveAspectRatio="xMidYMid slice"><rect width="400" height="112" fill="'+w+'"/><g fill="none" stroke="rgba(255,255,255,.45)" stroke-width="4"><circle cx="200" cy="56" r="34"/><path d="M200 0v112M0 20h70v72H0M400 20h-70v72h70"/></g></svg>';
 
-/* daftar */
+IKON.lari='<svg class="ik" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#0EA5E9" stroke="#2B1A3F" stroke-width="6"/><circle cx="58" cy="24" r="8" fill="#fff" stroke="#2B1A3F" stroke-width="4"/><path d="M52 36 40 56l14 6-6 18M44 46l-14 6M54 40l16 10M40 56l-12 14" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+IKON.jam='<svg class="ik" viewBox="0 0 100 100"><circle cx="50" cy="52" r="40" fill="#FBF6EE" stroke="#2B1A3F" stroke-width="6"/><path d="M50 26v26l18 12" fill="none" stroke="#B45309" stroke-width="7" stroke-linecap="round"/><path d="M38 6h24M50 6v6" stroke="#2B1A3F" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="52" r="5" fill="#2B1A3F"/></svg>';
+
+/* folder kelas */
 let jenjang=ambil('pjok-jenjang')||'semua', kata='';
 const JENJANG=[['SD',[1,2,3,4,5,6]],['SMP',[7,8,9]]];
-function kartu(m){
+const WARNA_KELAS={1:'#FF4F64',2:'#FF8A1F',3:'#E0A100',4:'#0EA5E9',5:'#7A5CD6',6:'#E8323F',7:'#1565C0',8:'#1E9B4C',9:'#C62828'};
+const FASE=k=>k<=2?'A':k<=4?'B':k<=6?'C':'D';
+const NAMA_SEM={1:'Semester 1',2:'Semester 2'}, KET_SEM={1:'Ganjil',2:'Genap'};
+const jenjangDari=k=>k<=6?'SD':'SMP';
+const semOf=m=>Number(m.semester)===2?2:1;
+function kartu(m,tampilKelas){
   const w=m.warna||'#FF7A1F', urlPid=m.link?m.link+(m.link.includes('?')?'&':'?')+'pid=1':'';
-  return '<article class="kartu"><div class="sampul">'+lapangan(w)+'<span class="kls">'+esc(m.jenjang+' · Kelas '+m.kelas)+'</span>'+(IKON[m.ikon]||IKON.bola)+'</div>'+
+  const label=(tampilKelas?m.jenjang+' · Kelas '+m.kelas+' · ':'')+NAMA_SEM[semOf(m)];
+  return '<article class="kartu"><div class="sampul">'+lapangan(w)+'<span class="kls">'+esc(label)+'</span>'+(IKON[m.ikon]||IKON.bola)+'</div>'+
    '<div class="isi"><h4>'+esc(m.judul)+'</h4>'+(m.sub?'<div class="sub">'+esc(m.sub)+'</div>':'')+'<p>'+esc(m.ringkas)+'</p>'+
    '<div class="tag">'+(m.topik||[]).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>'+
    '<div class="aksi">'+(m.link?'<a class="tombol utama" href="'+esc(m.link)+'" target="_blank" rel="noopener">Buka materi</a><a class="tombol" href="'+esc(urlPid)+'" target="_blank" rel="noopener" title="Buka dengan tampilan besar untuk PID / TV">Mode PID</a><button class="tombol" data-qr="'+esc(m.link)+'" data-nama="'+esc(m.judul+' · Kelas '+m.kelas)+'">Kode QR</button>':'<span class="chip">Tautan segera hadir</span>')+'</div></div></article>';
 }
-function cocok(m){if(!kata)return true;return [m.judul,m.sub,m.ringkas,(m.topik||[]).join(' '),'kelas '+m.kelas,m.jenjang].join(' ').toLowerCase().includes(kata);}
-function gambar(){
-  document.querySelectorAll('.pilih-jenjang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.j===jenjang)));
-  let html='',lompat='',total=0;
-  JENJANG.forEach(([j,daftar])=>{
-    if(jenjang!=='semua'&&jenjang!==j)return;
-    let kartuHtml='',kosong=[];
-    daftar.forEach(k=>{
-      const isi=M.filter(m=>m.kelas===k&&cocok(m));
-      if(kata&&!isi.length)return;
-      total+=isi.length;
-      lompat+='<a href="#kelas-'+k+'" class="'+(M.some(m=>m.kelas===k)?'ada':'')+'" aria-label="Kelas '+k+'">'+k+'<small>'+j+'</small></a>';
-      if(isi.length)kartuHtml+=isi.map((m,i)=>kartu(m).replace('<article class="kartu"','<article class="kartu"'+(i?'':' id="kelas-'+k+'"'))).join('');
-      else kosong.push(k);
-    });
-    const strip=kosong.length?'<div class="segera"><svg width="46" height="46" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="7" stroke-dasharray="10 8"/><path d="M50 26v26l16 10" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round"/></svg><div><b>Segera hadir</b><br>Media sedang disiapkan untuk kelas:</div><div class="kls-kosong">'+kosong.map(k=>'<span id="kelas-'+k+'">'+k+'</span>').join('')+'</div></div>':'';
-    if(kartuHtml||strip)html+='<div class="jenjang-judul"><span class="pita" style="background:'+(j==='SD'?'var(--merah)':'var(--biru)')+'">'+j+'</span><h3>'+(j==='SD'?'Sekolah Dasar':'Sekolah Menengah Pertama')+'</h3></div>'+(kartuHtml?'<div class="kartu-daftar">'+kartuHtml+'</div>':'')+strip;
-  });
-  $('#daftarKelas').innerHTML=html||'<div class="kosong-cari">Tidak ada materi yang cocok dengan "'+esc(kata)+'".</div>';
-  $('#lompat').innerHTML=lompat;
+const SEGERA=t=>'<div class="segera"><svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="7" stroke-dasharray="10 8"/><path d="M50 26v26l16 10" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round"/></svg><div><b>Segera hadir</b><br>'+t+'</div></div>';
+function cocok(m){return [m.judul,m.sub,m.ringkas,(m.topik||[]).join(' '),'kelas '+m.kelas,m.jenjang,'semester '+semOf(m),KET_SEM[semOf(m)]].join(' ').toLowerCase().includes(kata);}
+function folder(k){
+  const isi=M.filter(m=>m.kelas===k), w=WARNA_KELAS[k];
+  const s1=isi.filter(m=>semOf(m)===1).length, s2=isi.length-s1;
+  return '<a class="folder'+(isi.length?'':' kosong')+'" href="#kelas-'+k+'"'+(isi.length?' style="--wf:'+w+'"':'')+' aria-label="Folder kelas '+k+', '+isi.length+' materi">'+
+    '<span class="lidah"></span><span class="badan"><span class="lbl">KELAS · FASE '+FASE(k)+'</span><span class="no">'+k+'</span>'+
+    '<span class="jml">'+(isi.length?'<span>Sem 1: '+s1+'</span><span>Sem 2: '+s2+'</span>':'<span>Segera hadir</span>')+'</span></span></a>';
 }
-document.querySelectorAll('.pilih-jenjang button').forEach(b=>b.onclick=()=>{jenjang=b.dataset.j;simpan('pjok-jenjang',jenjang);gambar();});
-$('#cari').addEventListener('input',e=>{kata=e.target.value.trim().toLowerCase();gambar();});
-gambar();
+function gambarRak(){
+  document.querySelectorAll('.pilih-jenjang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.j===jenjang)));
+  let html='';
+  if(kata){
+    const hasil=M.filter(m=>(jenjang==='semua'||m.jenjang===jenjang)&&cocok(m)).sort((a,b)=>a.kelas-b.kelas||semOf(a)-semOf(b));
+    html='<div class="jenjang-judul"><h3>Hasil pencarian ('+hasil.length+')</h3></div>'+(hasil.length?'<div class="kartu-daftar">'+hasil.map(m=>kartu(m,true)).join('')+'</div>':'<div class="kosong-cari">Tidak ada materi yang cocok dengan "'+esc(kata)+'".</div>');
+  } else JENJANG.forEach(([j,daftar])=>{
+    if(jenjang!=='semua'&&jenjang!==j)return;
+    html+='<div class="jenjang-judul"><span class="pita" style="background:'+(j==='SD'?'var(--merah)':'var(--biru)')+'">'+j+'</span><h3>'+(j==='SD'?'Sekolah Dasar':'Sekolah Menengah Pertama')+'</h3></div><div class="rak">'+daftar.map(folder).join('')+'</div>';
+  });
+  $('#daftarKelas').innerHTML=html;
+}
+function gambarFolder(k){
+  const isi=M.filter(m=>m.kelas===k), w=WARNA_KELAS[k], j=jenjangDari(k);
+  const kolom=[1,2].map(s=>{const d=isi.filter(m=>semOf(m)===s);
+    return '<section class="semester"><h4>'+NAMA_SEM[s]+' <span>'+KET_SEM[s]+'</span></h4>'+(d.length?'<div class="kartu-daftar">'+d.map(m=>kartu(m,false)).join('')+'</div>':SEGERA('Materi '+NAMA_SEM[s].toLowerCase()+' sedang disiapkan.'))+'</section>';}).join('');
+  $('#isiFolder').innerHTML='<div class="kepala-folder" style="--wf:'+w+'"><a class="tombol" href="#materi">&larr; Semua kelas</a><span class="no">'+k+'</span><div><h3>Folder Kelas '+k+'</h3><p>'+(j==='SD'?'SD':'SMP')+' Jaya Manggala · Fase '+FASE(k)+' · '+isi.length+' materi</p></div>'+
+    '<div class="kanan">'+(k>1?'<a class="tombol" href="#kelas-'+(k-1)+'">&lsaquo; Kelas '+(k-1)+'</a>':'')+(k<9?'<a class="tombol" href="#kelas-'+(k+1)+'">Kelas '+(k+1)+' &rsaquo;</a>':'')+
+    '<button class="tombol" data-qr="'+esc(location.href.split('#')[0]+'#kelas-'+k)+'" data-nama="Folder Kelas '+k+'">QR folder</button></div></div><div class="semester-grid">'+kolom+'</div>';
+}
+function rute(gulir){
+  const m=/^#kelas-([1-9])$/.exec(location.hash);
+  const dalam=!!m;
+  $('#daftarKelas').hidden=dalam; $('#isiFolder').hidden=!dalam; document.querySelector('#materi .judul-bagian').hidden=dalam;
+  if(dalam)gambarFolder(Number(m[1]));else gambarRak();
+  if(gulir&&(dalam||location.hash==='#materi'))$('#materi').scrollIntoView({behavior:'smooth'});
+}
+document.querySelectorAll('.pilih-jenjang button').forEach(b=>b.onclick=()=>{jenjang=b.dataset.j;simpan('pjok-jenjang',jenjang);gambarRak();});
+$('#cari').addEventListener('input',e=>{kata=e.target.value.trim().toLowerCase();gambarRak();});
+addEventListener('hashchange',()=>rute(true));
+rute(/^#kelas-/.test(location.hash));
 
 /* QR */
 $('#tblQrUtama').dataset.qr=location.href.split(/[?#]/)[0];
