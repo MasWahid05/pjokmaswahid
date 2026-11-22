@@ -72,6 +72,33 @@ window.MATERI = [
     link: "https://maswahid05.github.io/Mpibasketkelas7/"
   },
   {
+    kelas: 7, semester: 1, jenjang: "SMP",
+    judul: "Naik Level!",
+    sub: "Bab 1 · Meningkatkan Keterampilan Gerak",
+    ringkas: "Gerak dasar ke gerak spesifik, cara tubuh belajar gerak baru, dan umpan balik visual, kinestetik, auditori, HA dan KT.",
+    topik: ["Bab 1", "Keterampilan Gerak"],
+    ikon: "lari", warna: "#0F9D8A",
+    link: "https://maswahid05.github.io/Mpibab1kelas7/"
+  },
+  {
+    kelas: 7, semester: 1, jenjang: "SMP",
+    judul: "Kuasai Ruang!",
+    sub: "Bab 2 · Memperagakan Strategi Gerak",
+    ringkas: "Masalah taktik, konsep ruang, gerak dengan dan tanpa bola, serta memilih pertahanan zona atau satu lawan satu.",
+    topik: ["Bab 2", "Strategi Gerak"],
+    ikon: "bola", warna: "#5B3CC4",
+    link: "https://maswahid05.github.io/Mpibab2kelas7/"
+  },
+  {
+    kelas: 7, semester: 1, jenjang: "SMP",
+    judul: "Gerak Cerdas",
+    sub: "Bab 3 · Belajar Melalui Gerak",
+    ringkas: "Konsep gerak, empat fase gerak, enam jenis transfer keterampilan, dan solusi masalah gerak lewat permainan kecil.",
+    topik: ["Bab 3", "Belajar Gerak"],
+    ikon: "piala", warna: "#D9480F",
+    link: "https://maswahid05.github.io/Mpibab3kelas7/"
+  },
+  {
     kelas: 8, semester: 1, jenjang: "SMP",
     judul: "Satu Bola, Semua Bermain",
     sub: "Variasi Teknik dan Permainan Modifikasi",
