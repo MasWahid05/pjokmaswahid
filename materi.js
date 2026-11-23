@@ -43,6 +43,15 @@ window.MATERI = [
     link: "https://maswahid05.github.io/Mpimanipulatifkelas1/"
   },
   {
+    kelas: 2, semester: 1, jenjang: "SD",
+    judul: "Sehatkan Badanmu!",
+    sub: "Bab 3 · Cepat, Lentur, Seimbang",
+    ringkas: "Berlatih cepat seperti kelinci, lentur seperti kucing, dan seimbang seperti bangau. Ada aba-aba, lampu gerak, pos latihan, permainan sentuh, dan kuis.",
+    topik: ["Bab 3", "Kebugaran"],
+    ikon: "jantung", warna: "#16A34A",
+    link: "https://maswahid05.github.io/Mpibab3kelas2/"
+  },
+  {
     kelas: 4, semester: 2, jenjang: "SD",
     judul: "Petualangan Tubuh Bugar",
     sub: "Ayo, Bugarkan Tubuhmu!",
