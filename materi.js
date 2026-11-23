@@ -52,6 +52,33 @@ window.MATERI = [
     link: "https://maswahid05.github.io/Mpikebugaranjasmani/"
   },
   {
+    kelas: 5, semester: 1, jenjang: "SD",
+    judul: "Ayo Jelajah Gerak!",
+    sub: "Bab 1 · Eksplorasi Gerak",
+    ringkas: "Jalan, lari, lompat, loncat, melempar-menangkap, menendang-menghentikan bola, dan gerak aman di air. Ada aba-aba, pos gerak, permainan sentuh, dan kuis 15 soal.",
+    topik: ["Bab 1", "Gerak Dasar"],
+    ikon: "lari", warna: "#F05A28",
+    link: "https://maswahid05.github.io/Mpibab1kelas5/"
+  },
+  {
+    kelas: 5, semester: 1, jenjang: "SD",
+    judul: "Gerak Cerdas!",
+    sub: "Bab 2 · Berpikir Cerdas, Bergerak Taktis",
+    ringkas: "Kesadaran ruang, usaha, dan hubungan saat bergerak, lalu memperkirakan dan menguji strategi tim di papan taktik.",
+    topik: ["Bab 2", "Strategi"],
+    ikon: "bola", warna: "#0E8F6E",
+    link: "https://maswahid05.github.io/Mpibab2kelas5/"
+  },
+  {
+    kelas: 5, semester: 1, jenjang: "SD",
+    judul: "Racik Permainanmu!",
+    sub: "Bab 3 · Aturan Baru, Permainan Seru",
+    ringkas: "Unsur dan prinsip permainan, modifikasi yang inklusif, lalu merancang dan menguji permainan baru buatan kelompokmu.",
+    topik: ["Bab 3", "Modifikasi Permainan"],
+    ikon: "piala", warna: "#7A3FD1",
+    link: "https://maswahid05.github.io/Mpibab3kelas5/"
+  },
+  {
     kelas: 6, semester: 1, jenjang: "SD",
     judul: "Energi Super",
     sub: "Algoritma Gerak untuk Jantung Sehat",
