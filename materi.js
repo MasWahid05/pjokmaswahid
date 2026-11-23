@@ -11,11 +11,11 @@ window.PROFIL = {
   nama: "Syaifudin Wahid",
   gelar: "M.Pd",
   sapaan: "Mr.",
-  peran: "Guru PJOK",
+  peran: "Physical Education Teacher",
   sekolah: ["SD Jaya Manggala", "SMP Jaya Manggala"],
   kota: "Tangerang",
-  motto: "Bergerak, bermain, bertumbuh.",
-  tentang: "Pendidikan Jasmani, Olahraga, dan Kesehatan bukan sekadar berolahraga. Di sini kita belajar bergerak dengan benar, bermain dengan adil, dan menjaga tubuh tetap sehat. Buka folder kelasmu, pilih materinya, lalu kerjakan tantangannya di HP atau di layar kelas.",
+  motto: "Move, play, grow.",
+  tentang: "Physical Education, Sports, and Health is more than just exercise. Here we learn to move correctly, play fairly, and keep our bodies healthy. Open your class folder, choose a lesson, then take on the challenges on your phone or on the classroom screen.",
   // Tautan tambahan (opsional). Kosongkan link bila tidak dipakai.
   tautan: [
     // { label: "Instagram", link: "" },
