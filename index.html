@@ -261,9 +261,10 @@ dialog h3{font-size:30px;margin-bottom:4px}
 </dialog>
 
 <script src="materi.js"></script>
+<script src="https://syaifudinwahid.vercel.app/cms/cms.js?v=3" data-site="penjasku" data-globals="PROFIL,MATERI"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
-(function(){
+(window.cmsReady||Promise.resolve()).then(function(){
 const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const P=window.PROFIL||{}, M=(window.MATERI||[]).filter(m=>m&&m.kelas);
@@ -369,7 +370,7 @@ pid(/[?&]pid=1/.test(location.search)||ambil('pjok-pid')==='1');
 $('#tblPid').onclick=()=>pid(!document.documentElement.classList.contains('pid'));
 const temaAwal=ambil('pjok-tema');if(temaAwal)document.documentElement.dataset.theme=temaAwal;
 $('#tblTema').onclick=()=>{const gelap=document.documentElement.dataset.theme?document.documentElement.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;const t=gelap?'light':'dark';document.documentElement.dataset.theme=t;simpan('pjok-tema',t);};
-})();
+});
 </script>
 </body>
 </html>
