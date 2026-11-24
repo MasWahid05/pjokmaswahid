@@ -162,6 +162,33 @@ window.MATERI = [
     link: "https://maswahid05.github.io/Mpibasketkelas8/"
   },
   {
+    kelas: 8, semester: 1, jenjang: "SMP",
+    judul: "Gerak Efektif!",
+    sub: "Bab 1 · Mengefektifkan Gerak",
+    ringkas: "Komponen gerak, gaya dan hukum Newton, latihan kekuatan dan power, serta analisis gerak per fase. Materi bergambar, permainan, dan kuis acak.",
+    topik: ["Bab 1", "Gaya & Gerak"],
+    ikon: "lari", warna: "#16A34A",
+    link: "https://maswahid05.github.io/Mpibab1kelas8/"
+  },
+  {
+    kelas: 8, semester: 1, jenjang: "SMP",
+    judul: "Ilmu Lintasan!",
+    sub: "Bab 2 · Menerapkan Konsep Gerak",
+    ringkas: "Gerak parabola dan proyektil, rahasia sudut lepas, serta keseimbangan dan stabilitas tubuh. Ada eksperimen kelas dan game di rumah.",
+    topik: ["Bab 2", "Konsep Gerak"],
+    ikon: "bola", warna: "#0D9488",
+    link: "https://maswahid05.github.io/Mpibab2kelas8/"
+  },
+  {
+    kelas: 8, semester: 1, jenjang: "SMP",
+    judul: "Atur Strategi!",
+    sub: "Bab 3 · Menyusun dan Menerapkan Strategi Gerak",
+    ringkas: "Strategi dan taktik, menyusun rencana tim, menyerang dan bertahan, lalu analisis keberhasilan dengan data. Ada papan strategi.",
+    topik: ["Bab 3", "Strategi"],
+    ikon: "piala", warna: "#4D7C0F",
+    link: "https://maswahid05.github.io/Mpibab3kelas8/"
+  },
+  {
     kelas: 9, semester: 1, jenjang: "SMP",
     judul: "Liga Basket Kelas",
     sub: "Bermain, Memimpin, dan Melayani",
