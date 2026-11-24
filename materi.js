@@ -52,6 +52,33 @@ window.MATERI = [
     link: "https://maswahid05.github.io/Mpibab3kelas2/"
   },
   {
+    kelas: 4, semester: 1, jenjang: "SD",
+    judul: "Ayo, Bergerak!",
+    sub: "Bab 1 · Ayo, Bergerak!",
+    ringkas: "Gerak berpindah tempat, gerak di tempat, gerak memakai benda, dan bergerak di air dengan aman. Materi bergambar, permainan, dan kuis acak.",
+    topik: ["Bab 1", "Gerak Dasar"],
+    ikon: "lari", warna: "#EA580C",
+    link: "https://maswahid05.github.io/Mpibab1kelas4/"
+  },
+  {
+    kelas: 4, semester: 1, jenjang: "SD",
+    judul: "Ayo, Bermain!",
+    sub: "Bab 2 · Ayo, Bermain!",
+    ringkas: "Permainan invasi, net, lapangan, target, dan kerja sama. Ada boling botol, kasti mini, dan banyak game di rumah.",
+    topik: ["Bab 2", "Permainan"],
+    ikon: "bola", warna: "#2563EB",
+    link: "https://maswahid05.github.io/Mpibab2kelas4/"
+  },
+  {
+    kelas: 4, semester: 1, jenjang: "SD",
+    judul: "Rangkai Gerakmu!",
+    sub: "Bab 3 · Ayo, Merangkai Gerak!",
+    ringkas: "Gerak berirama 1 × 8, senam keseimbangan dan guling depan, serta gerak dasar pencak silat.",
+    topik: ["Bab 3", "Rangkaian Gerak"],
+    ikon: "piala", warna: "#DB2777",
+    link: "https://maswahid05.github.io/Mpibab3kelas4/"
+  },
+  {
     kelas: 4, semester: 2, jenjang: "SD",
     judul: "Petualangan Tubuh Bugar",
     sub: "Ayo, Bugarkan Tubuhmu!",
