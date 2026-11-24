@@ -96,6 +96,15 @@ window.MATERI = [
     ikon: "jantung", warna: "#E8323F",
     link: "https://maswahid05.github.io/Mpikebugaranjasmanivi/"
   },
+  {
+    kelas: 6, semester: 1, jenjang: "SD",
+    judul: "Pesilat Cilik!",
+    sub: "Bab 4 · Aktivitas Bela Diri Pencak Silat",
+    ringkas: "Sikap hormat, kuda-kuda, pukulan, tendangan depan-T-sabit, tangkisan, elakan, dan kombinasinya. Materi bergambar, gerakan beranimasi, 10 permainan, main di rumah, dan kuis acak.",
+    topik: ["Bab 4", "Pencak Silat"],
+    ikon: "lari", warna: "#C0262D",
+    link: "https://maswahid05.github.io/Mpibab4kelas6/"
+  },
 
   /* ---------- SMP ---------- */
   {
